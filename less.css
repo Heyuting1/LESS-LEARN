@@ -1,0 +1,95 @@
+.content-box-first {
+  width: 260px;
+  height: 200px;
+  display: flex;
+  margin-bottom: 30px;
+  justify-content: space-between;
+  background-color: #f18484;
+}
+.content-box-first .content-box-right {
+  background-color: #82f8d3;
+  width: 120px;
+  height: 170px;
+  color: red;
+  color: green;
+}
+.content-box-left {
+  background-color: #82f8d3;
+  width: 120px;
+  height: 170px;
+  color: red;
+}
+.content-box-sec {
+  width: 260px;
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f18484;
+  margin-bottom: 30px;
+}
+.content-box-sec.content-box-left {
+  background-color: #8286f8;
+  width: 120px;
+  height: 170px;
+  color: black;
+}
+.content-box-sec .content-box-right {
+  background-color: #8286f8;
+  width: 120px;
+  height: 170px;
+  color: black;
+}
+.content-box-sec .content-box-son.content-box-left {
+  background-color: #c981c1;
+  width: 120px;
+  height: 170px;
+  color: black;
+}
+.compute .compute-one {
+  color: #777777 / 2;
+  font-size: -106.38582677px;
+}
+.scope-box {
+  width: 100px;
+  height: 100px;
+}
+.scope-box .scope-inside {
+  color: yellow;
+}
+.text-box .text-one {
+  color: red;
+}
+.text-box .text-one .text-one-one {
+  color: purple;
+}
+.text-box .text-one:before {
+  content: 'xxxx';
+  color: black;
+}
+.text-box :after {
+  content: '明天见';
+  color: blue;
+}
+.text-box:after {
+  content: '后天见';
+  color: blue;
+}
+.text-box .text-two {
+  color: yellow;
+}
+a {
+  font-size: 32px;
+  text-decoration: none;
+}
+a:hover:before,
+a:hover:after {
+  position: absolute;
+}
+a:hover:before {
+  content: "\5B";
+  left: 0px;
+}
+a:hover:after {
+  content: "\5D";
+  left: 100px;
+}

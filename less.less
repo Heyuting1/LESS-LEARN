@@ -1,0 +1,159 @@
+@width: 120px;
+@height: @width + 50px;
+
+.content-box-first{
+  width:260px;
+  height: 200px;
+  display: flex;
+  margin-bottom: 30px;
+  justify-content: space-between;
+  background-color: rgb(241, 132, 132);
+  // 1.2.混合 后面的会把前面的覆盖【直接使用已经写过的样式】
+  .content-box-right{
+    .content-box-left();
+    color:green;
+
+  }
+}
+// 1.1变量的使用
+.content-box-left{
+  background-color: rgb(130, 248, 211);
+  width: @width;
+  height: @height;
+  color:red;
+}
+
+// div p div元素下的所有p元素；div>p,选择所有父级是 <div> 元素的 <p> 元素
+//1.3.嵌套   被解析为后代选择器；
+// 【有同名的情况】sec中的left块，right块当样式sec中未设置样式时，采用全局下的样式.content-box-left；
+// 但是如.content-box-right写在.content-box-first中，构成父子关系时，则不会被作用到sec中的rigth块
+// & 表示并且
+// @ 的使用？？？？
+.content-box-sec{
+  width:260px;
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(241, 132, 132);
+  margin-bottom: 30px;
+
+  &.content-box-left{ // 元素中class=‘content-box-left’被全局的作用；元素中class=‘content-box-sec content-box-left’被当前的作用；
+  // .content-box-left{
+    background-color: rgb(130, 134, 248);
+    width: @width;
+    height: @height;
+    color:black;
+  }
+  .content-box-right{
+    background-color: rgb(130, 134, 248);
+    width: @width;
+    height: @height;
+    color:black;
+  }
+  .content-box-son {
+    // .content-box-son-child{
+      //孙子辈的样式设置，同名仍以孙子辈的样式，会覆盖父代的设置
+      &.content-box-left{ // sec下同时有son，left样式的元素被作用
+      background-color: rgb(201, 129, 193);
+      width: @width;
+      height: @height;
+      color:black;
+    }
+  }
+}
+
+// 1.4.运算 计算的结果以最左侧操作数的单位类型为准;算术运算符 +、-、*、/ 可以对
+@color: #888888;
+.compute{
+  .compute-one{
+    color: (@color - #111111) / 2;
+    // font-size: 20px-4 + 2rem;   // 18px
+    // font-size: 20 * 2px;     // 40px
+    font-size: 2 + 5px - 3cm; //失去意义，不进行单位换算
+  }
+}
+// 1.5作用域
+// Less 中的作用域与 CSS 中的作用域非常类似。首先在本地查找变量和混合（mixins），如果找不到，则从“父”级作用域继承。
+//查找顺序1，2，3；
+//通过2，发现变量不必在引用前先定义；
+@textcolor: red; // 3
+.scope-box{
+  width: 100px;
+  height: 100px;
+
+  .scope-inside{
+    @textcolor:yellow;  // 1
+    color: @textcolor;
+  }
+  // @textcolor: blue;  // 2
+}
+// 2.1 伪类 before，after在p元素的内部的开头和结尾加入content
+// :before css2的写法；::before css3 的写法
+.text-box{
+  .text-one {
+    color:red;
+    .text-one-one{
+      color:purple;
+    }
+  }
+
+  .text-one:before{
+    content: 'xxxx';
+    color:black;
+  }
+
+  :after{
+   content: '明天见';
+   color:blue;
+  }
+  &:after{
+    content: '后天见';
+    color:blue;
+  }
+  .text-two{
+    color:yellow;
+  }
+}
+// .pseudo::after{
+//   content: 'thirdDay';
+// }
+// .pseudo::before{
+//   content: 'firstDay';
+// }
+
+// 动态伪类 ：hover， ：link ， ：visited，：active
+// 正确的顺序：a:link、a:visited、a:hover、a:active
+a {
+  font-size: 32px;
+  text-decoration: none;
+  //结合使用hover，before，after
+  &:hover:before,
+  &:hover:after { position: absolute; }
+  &:hover:before { content: "\5B"; left: 0px; }
+  &:hover:after { content: "\5D"; left: 100px; }
+
+  //&:hover才生效，a:hover不生效
+    // &:hover{
+    //   color:red;
+    // }
+  }
+// 【总结：hover要写在link，visited之后（否则不生效），active要写在hover之后（否则不生效）】
+  //因为曾经访问过该链接的缓存，会看不出效果
+  // a:link{
+  //   color:blue;
+  // }
+  //  //访问过的样式
+  //  a:visited {
+  //   color:green;
+  // }
+  // // 悬浮
+  // // hover写在link，visited之上，会不生效；写在active之后会导致active不生效
+  // a:hover{
+  //   color:red;
+  // }
+  // //按住不松
+  // // 写在1，2，3之前也会不生效
+  // a:active{
+  //   color:yellow;
+  // }
+
