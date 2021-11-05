@@ -14,27 +14,31 @@
   <link rel="stylesheet/less" type="text/css" href="less.less">
   <!-- 引入less.js -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+
 </head>
 <body>
   <div class="content-box-first">
     <div class='content-box-left'>
-      <p>less学习1</p>
+      <p>小左</p>
     </div>
     <div class='content-box-right'>
-      <p>less学习11</p>
+      <p>小右小右小右小右小右小右小右小右小右</p>
     </div>
   </div>
 
   <div class="content-box-sec">
-    <div class='content-box-sec content-box-left'><p>less学习2</p></div>
-    <div class='content-box-right'><p>less学习2</p></div>
+    <!-- &的演示 -->
+    <div class='content-box-sec content-box-left'><p>二代</p></div>
+    <div class='content-box-right'><p>二代</p></div>
     <!-- 问题：？孙子辈会被作用？？ 会，为后代选择器-->
     <div class='content-box-son'>
       <!-- 【因为后代选择其的作用，content-box-left被作用生效】 -->
       <!-- ！！！！！！优先级同名时：孙子辈的选择器>儿子辈>全局父辈【有一种继承父代元素的性质，同时自身的作用覆盖父代的设置】 -->
       <!-- <div class='content-box-son-child'> -->
-      <div class='content-box-son content-box-left'>
-        less 孙子辈
+      <!-- <div class='content-box-son content-box-left'> -->
+        <!-- // 后代选择器，三代同名会被作用 -->
+      <div class='content-box-right'>
+        三代
       </div>
     </div>
   </div>
@@ -42,21 +46,25 @@
   <div class='text-box'>
     <!-- <div>第二天</div> -->
     <div class='text-one'>
-      你好！text-one
+      text-one文本
       <div class="text-one-one">
-        text-one-one
+        我是text-one文本子元素
       </div>
     </div>
     <div class='text-two'>
-      你好！text-two.
+      text-two文本
     </div>
   </div>
+
   <!-- 1.4 运算 -->
   <div class='compute'>
     <div class="compute-one">运算</div>
   </div>
 
   <a href="http://www.bupt.edu.cn">
+    <a>a.a标签
+      <a>a.a.a标签</a>
+    </a>
     a标签
   </a>
 
@@ -65,5 +73,34 @@
   <div class='scope-box'>
     <div class="scope-inside ">作用域</div>
   </div>
+
+
+  <div class='text-test'>
+    你好世界:<div>
+      <!-- 空白符 -->
+      <div class='text-content'>你好,今晚的                夜色真美啊!
+      </div>
+      <!-- 换行符 -->
+      <div class='text-content' id="nn">
+      </div>
+      <!-- br元素 -->
+      <div class='text-content'>
+        你好,今晚的<br /><br /><br />夜色真美啊
+      </div>
+      <!-- nbsp -->
+      <div class='text-content'>
+        你好,今晚的&nbsp;&nbsp;夜色真美啊! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
+
+    </div>
+
+  </div>
+
+  <script>
+    const str="你好,今晚的的"+"\n"+"\n"+"夜色真美啊!!"
+    var text=document.getElementById("nn")
+    console.log('123')
+    text.innerHTML=str
+  </script>
 </body>
 </html>

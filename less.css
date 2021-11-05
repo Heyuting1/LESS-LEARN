@@ -7,14 +7,14 @@
   background-color: #f18484;
 }
 .content-box-first .content-box-right {
-  background-color: #82f8d3;
+  background-color: #b2ecda;
   width: 120px;
   height: 170px;
   color: red;
   color: green;
 }
 .content-box-left {
-  background-color: #82f8d3;
+  background-color: #b2ecda;
   width: 120px;
   height: 170px;
   color: red;
@@ -27,34 +27,47 @@
   background-color: #f18484;
   margin-bottom: 30px;
 }
-.content-box-sec.content-box-left {
+.content-box-left .content-box-sec {
   background-color: #8286f8;
-  width: 120px;
+  width: 60px;
   height: 170px;
   color: black;
 }
 .content-box-sec .content-box-right {
   background-color: #8286f8;
-  width: 120px;
+  width: 60px;
   height: 170px;
   color: black;
 }
 .content-box-sec .content-box-son.content-box-left {
   background-color: #c981c1;
-  width: 120px;
+  width: 60px;
   height: 170px;
   color: black;
 }
 .compute .compute-one {
   color: #777777 / 2;
-  font-size: -106.38582677px;
+  font-size: 38.79527559px;
 }
 .scope-box {
   width: 100px;
   height: 100px;
+  background-color: #888888;
+  text-align: center;
+  position: relative;
+  margin-top: 40px;
 }
 .scope-box .scope-inside {
-  color: yellow;
+  position: absolute;
+  top: 40px;
+  left: 25px;
+  height: 20px;
+  width: 50px;
+  color: red;
+}
+.text-box {
+  margin-bottom: 40px;
+  margin-left: 40px;
 }
 .text-box .text-one {
   color: red;
@@ -62,34 +75,38 @@
 .text-box .text-one .text-one-one {
   color: purple;
 }
-.text-box .text-one:before {
-  content: 'xxxx';
+.text-box .text-one:after {
+  content: 'text-one文本之后';
   color: black;
 }
 .text-box :after {
-  content: '明天见';
+  content: '后代元素之后';
   color: blue;
 }
 .text-box:after {
-  content: '后天见';
+  content: '父元素之后';
   color: blue;
 }
 .text-box .text-two {
-  color: yellow;
+  color: #a5d172;
 }
 a {
   font-size: 32px;
   text-decoration: none;
+  margin-bottom: 100px;
 }
-a:hover:before,
-a:hover:after {
-  position: absolute;
+a:hover {
+  color: red;
 }
-a:hover:before {
-  content: "\5B";
-  left: 0px;
+a:link {
+  color: blue;
 }
-a:hover:after {
-  content: "\5D";
-  left: 100px;
+a:visited {
+  color: green;
+}
+a:active {
+  color: yellow;
+}
+.box-son {
+  width: 120px;
 }
