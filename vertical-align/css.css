@@ -1,0 +1,47 @@
+.box-left{
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  color: white;
+  font-size: 16px;
+}
+.box-right{
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-color: blue;
+  color: white;
+  font-size: 16px;
+}
+.box3{
+  /* display: inline-block; */
+  width: 400px;
+  height: 200px;
+  margin-top: 20px;
+  background-color: rgb(239, 116, 116);
+  color: white;
+  font-size: 20px;
+  border: 1px solid black;
+
+}
+.children-span{
+  background-color: rgb(240, 219, 219);
+  vertical-align: baseline;
+  font-size: 12px;
+}
+.children-box{
+   display: inline-block;
+   width: 20px;
+   height: 40px;
+   margin-top: 20px;
+   background-color: aquamarine;
+}
+.text20{
+  font-size: 20px;
+  background-color: bisque;
+}
+.text30{
+  font-size: 30px;
+  background-color: rgb(104, 231, 231);
+}
